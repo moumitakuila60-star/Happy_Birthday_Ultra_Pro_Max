@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Best Friend 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: radial-gradient(circle at top, #141e30, #0d0d0d);
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      overflow-x: hidden;
+      animation: bgShift 12s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+      0% { background: radial-gradient(circle at top, #141e30, #0d0d0d); }
+      50% { background: radial-gradient(circle at bottom, #2b1055, #000); }
+      100% { background: radial-gradient(circle at top, #141e30, #0d0d0d); }
+    }
+
+    h1 {
+      color: #ff6ec7;
+      text-shadow: 0 0 10px #ff0077, 0 0 30px #ff6ec7;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      margin: 20px;
+      text-align: center;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff0077; }
+      to { text-shadow: 0 0 25px #ff66aa, 0 0 50px #ff0077; }
+    }
+
+    .console {
+      background: #000;
+      color: #00ffcc;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 700px;
+      height: 50vh;
+      overflow-y: auto;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+      white-space: pre-wrap;
+      font-size: clamp(0.8rem, 3vw, 1.1rem);
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      margin: 10px 0;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      color: #cccccc;
+      text-align: center;
+    }
+
+    .float {
+      position: fixed;
+      font-size: 22px;
+      animation: float 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-700px) scale(1.4); opacity: 0; }
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      color: #ff5ca1;
+      text-shadow: 0 0 20px #ff007f, 0 0 40px #ff4db8;
+      animation: fadeInOut 4s ease-in-out infinite;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    .memory-btn {
+      color: white;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 400%;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 20px #ff4da6, 0 0 40px #ff1aa3;
+      animation: rainbow 4s linear infinite, pulse 1.5s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .memory-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px #fff, 0 0 60px #ff33bb;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐍 Happy Birthday, My Best Friend 🥳</h1>
+
+  <div class="console" id="console"></div>
+
+  <div class="footer">Your forever buddy — Moumita 💻</div>
+
+  <button class="memory-btn" onclick="window.location.href='memory.html'">
+    📸 The Legend's Picture 📸
+  </button>
+
+  <script>
+    const lines = [
+      ">>> from friendship import BestFriend",
+      ">>> friend = BestFriend(name='Ultra Pro Max', quality='Legend')",
+      "",
+      ">>> print('🎉 Happy Birthday, Legend! 🎉')",
+      "Happy Birthday, Legend!",
+      "",
+      ">>> print('You’re not just a friend... you’re a full mood 😎🔥')",
+      "You’re not just a friend... you’re a full mood 😎🔥",
+      "",
+      ">>> print('Every group has one legend — and that’s YOU! 🚀')",
+      "Every group has one legend — and that’s YOU! 🚀",
+      "",
+      ">>> print('You debug boredom, execute fun, and import happiness! 😄')",
+      "You debug boredom, execute fun, and import happiness! 😄",
+      "",
+      ">>> print('May your code never crash and your life always compile 💫')",
+      "May your code never crash and your life always compile 💫",
+      "",
+      ">>> print('Stay unstoppable, unfiltered, and forever legendary 💥')",
+      "Stay unstoppable, unfiltered, and forever legendary 💥",
+      "",
+      ">>> print('Best wishes from your crazy friend — Moumita 💚')",
+      "Best wishes from your crazy friend — Moumita 💚"
+    ];
+
+    const consoleDiv = document.getElementById("console");
+    let line = 0;
+
+    function typeLine() {
+      if (line < lines.length) {
+        let i = 0;
+        const current = lines[line];
+        const interval = setInterval(() => {
+          consoleDiv.innerHTML += current[i++] || '';
+          if (i >= current.length) {
+            clearInterval(interval);
+            consoleDiv.innerHTML += "\n";
+            line++;
+            setTimeout(typeLine, 250);
+          }
+        }, 40);
+      } else {
+        showPopup();
+      }
+    }
+
+    function showPopup() {
+      const popup = document.createElement("div");
+      popup.className = "popup";
+      popup.innerHTML = "💫 The Legend Lives On 💫";
+      document.body.appendChild(popup);
+    }
+
+    // Floating emojis
+    const emojis = ["🔥","🎉","🥳","💻","💫","😎","🌈"];
+    setInterval(() => {
+      const e = document.createElement("div");
+      e.className = "float";
+      e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      e.style.left = Math.random() * window.innerWidth + "px";
+      e.style.animationDuration = (3 + Math.random() * 4) + "s";
+      e.style.opacity = 0.6 + Math.random() * 0.4;
+      document.body.appendChild(e);
+      setTimeout(() => e.remove(), 7000);
+    }, 300);
+
+    typeLine();
+  </script>
+
+</body>
+</html>
