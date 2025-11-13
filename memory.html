@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Legend's Picture 📸</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0f0f0f, #1a1a2e);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      animation: bgMove 12s ease-in-out infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background: radial-gradient(circle at top, #2b1055, #000); }
+      50% { background: radial-gradient(circle at bottom, #0f3460, #000); }
+      100% { background: radial-gradient(circle at top, #2b1055, #000); }
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      background: linear-gradient(90deg, #00c3ff, #ff00cc, #00ffb3, #ff9ff3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400% 100%;
+      animation: rainbowText 6s linear infinite;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    @keyframes rainbowText {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #00ffff, 0 0 45px #ff33bb;
+    }
+
+    .back-btn {
+      background: linear-gradient(90deg,#00ffcc,#ff33bb,#ff6ec7);
+      background-size: 300% 100%;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      cursor: pointer;
+      animation: rainbowShift 4s linear infinite, pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes rainbowShift {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    @keyframes pulse {
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.05)}
+    }
+
+    .footer {
+      color: #aaa;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      text-shadow: 0 0 10px #00ffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📸 The Legend's Picture 📸</h1>
+
+  <div class="gallery">
+    <!-- Replace with only his solo photos -->
+    <img src="M1.jpg" alt="Legend 1">
+    <img src="m2.jpg" alt="Legend 2">
+    <img src="m3.jpg" alt="Legend 3">
+    <img src="m4.jpg" alt="Legend 4">
+    <img src="5.jpg" alt="Legend 5">
+    <img src="m6.jpg" alt="Legend 1">
+    <img src="m7.jpg" alt="Legend 2">
+    <img src="m8.jpg" alt="Legend 3">
+    <img src="m11.jpg" alt="Legend 5">
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">← Back to Main Page</button>
+
+  <div class="footer">Made with pride by Moumita — for The Legend 💥</div>
+
+</body>
+</html>
